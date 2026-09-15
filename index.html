@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plantilla de Tarjetas CRC</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div>
+        <h1>Plantilla de Tarjetas CRC</h1>
+      </div>
+      <div class="actions no-print">
+        <button id="newCard">Nueva tarjeta</button>
+        <button id="saveFile">Guardar archivo</button>
+        <label class="button file-button">Cargar archivo<input id="loadFile" type="file" accept=".json,application/json"></label>
+        <button id="printPdf" class="primary">Imprimir / PDF</button>
+      </div>
+    </header>
+
+    <section class="help no-print">
+      <strong>Uso:</strong> completa los datos de cada clase, se puede agregar filas y tarjetas, guardar el trabajo en un archivo (JSON) para editarlo después y usar <b>Imprimir / PDF</b> para entregarlo en PDF.
+    </section>
+
+    <section id="cards"></section>
+
+    <footer class="no-print">
+      <button id="addCard" class="primary">+ Agregar tarjeta CRC</button>
+    </footer>
+  </main>
+
+  <template id="cardTemplate">
+    <article class="crc-card">
+      <div class="card-top">
+        <div class="field class-name">
+          <label>Nombre de la clase</label>
+          <input data-field="className" placeholder="Ej. Curso">
+        </div>
+        <button class="delete-card no-print" title="Eliminar tarjeta">Eliminar</button>
+      </div>
+
+      <div class="inheritance">
+        <div class="field"><label>Superclases</label><input data-field="superclasses" ></div>
+        <div class="field"><label>Subclases</label><input data-field="subclasses" ></div>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Responsabilidades</th>
+              <th>Colaboradores</th>
+              <th>Pensamiento en objetos</th>
+              <th>Propiedad</th>
+              <th class="no-print action-col"></th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+      <button class="add-row no-print">+ Agregar fila</button>
+    </article>
+  </template>
+
+  <script src="script.js"></script>
+</body>
+</html>
